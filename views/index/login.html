@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <?php include('./views/common/style.html') ?>
+</head>
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+                <img src="/uploads/monkey.png" class="img-circle" alt="">
+            </div>
+            <form id="loginFrom" action="" class="col-md-offset-1 col-md-10">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user" tc_avatar = "5869f9cfeebd1.jpg"></i>
+                    </span>
+                    <input name="tc_name" type="text" class="form-control" placeholder="用户名">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input name="tc_pass" type="password" class="form-control" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+    <?php include('./views/common/script.html') ?>
+
+    <script>
+        //登陆功能需要后端做验证
+        //前端需要将用户输入的用户名和密码发送到服务端，发送方式可以使用传统表单，此方式造成页面刷新，所以用户体验不好
+        //也可以采用XMLHttpRequest方式，可以不刷新页面可以将数据提交过去
+        /*$('#loginFrom').on('submit', function () {
+            var formData = $(this).serialize();
+            $.ajax({
+                url:'/api/login',
+                type:'post',
+                data:formData,
+                success:function (info) {
+                    if(info.code === 200){
+                        // console.log(info);
+                        $.cookie('loginfo', JSON.stringify(info.result), {path : '/'});
+                        location.href = '/';
+                    }
+                }
+            });
+            return false;
+        });*/
+
+        require(['src/index/index']);
+        
+    </script>
+</body>
+</html>
